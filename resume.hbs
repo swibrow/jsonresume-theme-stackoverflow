@@ -7,9 +7,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  <style>
   {{{css}}}
   </style>
+  <script>
+    (function() {
+      var stored = localStorage.getItem('theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+    })();
+  </script>
 
   </head>
   <body>
+
+  <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <span class="icon-sun">&#9728;</span>
+    <span class="icon-moon">&#9790;</span>
+  </button>
 
   <div id="resume">
     {{> basics }}
@@ -24,6 +37,30 @@
     {{> languages }}
     {{> interests }}
     {{> references }}
+
+  <script>
+    (function() {
+      var toggle = document.getElementById('theme-toggle');
+      var root = document.documentElement;
+
+      function getEffectiveTheme() {
+        var stored = localStorage.getItem('theme');
+        if (stored) return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      toggle.addEventListener('click', function() {
+        var current = getEffectiveTheme();
+        var next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+        if (!localStorage.getItem('theme')) return;
+      });
+    })();
+  </script>
 
   </body>
 </html>
