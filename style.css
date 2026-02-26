@@ -132,6 +132,84 @@ table {
 }
 
 /****************
+*	THEME COLORS
+****************/
+
+:root {
+  --color-bg: #fff;
+  --color-text: #40484f;
+  --color-link: #0095ff;
+  --color-link-hover: #0c65a5;
+  --color-emphasis: #757575;
+  --color-section-title: #ff6d1f;
+  --color-section-title-bg: #fff;
+  --color-meta: #606d76;
+  --color-header-label: #202931;
+  --color-summary-bg: #f1f8ff;
+  --color-section-line: #ccc;
+  --color-space-left: #aaa;
+  --color-keyword-text: #3e6d8e;
+  --color-keyword-bg: #e1e8ec;
+  --color-keyword-border: #e1e8ec;
+  --color-keyword-hover: #dfeaf0;
+  --color-bar-border: #ddd;
+  --color-date-tablet: #000;
+  --color-reference-border: #ff6d1f;
+  --color-github: #171515;
+  --color-tumblr: #32506d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #1a1a2e;
+    --color-text: #e0e0e0;
+    --color-link: #4db8ff;
+    --color-link-hover: #80ccff;
+    --color-emphasis: #a0a0a0;
+    --color-section-title: #ff8c4a;
+    --color-section-title-bg: #1a1a2e;
+    --color-meta: #8a9aa5;
+    --color-header-label: #c8d0d8;
+    --color-summary-bg: #16213e;
+    --color-section-line: #444;
+    --color-space-left: #666;
+    --color-keyword-text: #7ab3d4;
+    --color-keyword-bg: #1e3a50;
+    --color-keyword-border: #1e3a50;
+    --color-keyword-hover: #254560;
+    --color-bar-border: #555;
+    --color-date-tablet: #e0e0e0;
+    --color-reference-border: #ff8c4a;
+    --color-github: #c9d1d9;
+    --color-tumblr: #7a9ab8;
+  }
+}
+
+[data-theme="dark"] {
+  --color-bg: #1a1a2e;
+  --color-text: #e0e0e0;
+  --color-link: #4db8ff;
+  --color-link-hover: #80ccff;
+  --color-emphasis: #a0a0a0;
+  --color-section-title: #ff8c4a;
+  --color-section-title-bg: #1a1a2e;
+  --color-meta: #8a9aa5;
+  --color-header-label: #c8d0d8;
+  --color-summary-bg: #16213e;
+  --color-section-line: #444;
+  --color-space-left: #666;
+  --color-keyword-text: #7ab3d4;
+  --color-keyword-bg: #1e3a50;
+  --color-keyword-border: #1e3a50;
+  --color-keyword-hover: #254560;
+  --color-bar-border: #555;
+  --color-date-tablet: #e0e0e0;
+  --color-reference-border: #ff8c4a;
+  --color-github: #c9d1d9;
+  --color-tumblr: #7a9ab8;
+}
+
+/****************
 *	COMMONS
 ****************/
 
@@ -139,7 +217,8 @@ body,
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
-  color: #40484f;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.46153846;
@@ -151,12 +230,12 @@ p {
 }
 
 a {
-  color: #0095ff;
+  color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover {
-  color: #0c65a5;
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 
@@ -179,7 +258,7 @@ h3 {
 }
 
 em {
-  color: #757575;
+  color: var(--color-emphasis);
 }
 
 blockquote {
@@ -204,7 +283,7 @@ strong {
 
 section .location {
   margin-right: 0.5em;
-  color: #606d76;
+  color: var(--color-meta);
   font-weight: 700;
 }
 
@@ -247,7 +326,7 @@ section .location {
 }
 
 #header h2.label {
-  color: #202931;
+  color: var(--color-header-label);
   font-size: 1.47rem;
   font-weight: 300;
 }
@@ -259,7 +338,7 @@ section .location {
 }
 
 .main-summary {
-  background: #f1f8ff;
+  background: var(--color-summary-bg);
   padding: 1.2em 1em;
   margin-top: 1rem;
 }
@@ -270,9 +349,9 @@ section .location {
 
 .section-title {
   display: inline-block;
-  background: #fff;
+  background: var(--color-section-title-bg);
   padding: 0 1em 0.3em 0;
-  color: #ff6d1f;
+  color: var(--color-section-title);
   text-transform: capitalize;
   font-weight: 600;
   border: none;
@@ -292,7 +371,7 @@ section .location {
   left: 0;
   top: 0.7em;
   height: 1px;
-  background: #ccc;
+  background: var(--color-section-line);
   content: "";
   width: 100%;
   z-index: -100;
@@ -317,7 +396,7 @@ section .location {
   position: absolute;
   left: -1.56rem;
   top: 5px;
-  color: #aaa;
+  color: var(--color-space-left);
   line-height: 1;
   opacity: 0;
 }
@@ -354,7 +433,7 @@ section .location {
 .institution,
 .organization,
 .awarder {
-  color: #606d76;
+  color: var(--color-meta);
   font-weight: 400;
 }
 
@@ -362,7 +441,7 @@ section .location {
   display: block;
   font-size: 1rem;
   padding: 0.1em 0;
-  color: #606d76;
+  color: var(--color-meta);
   font-weight: 400;
 }
 
@@ -378,15 +457,15 @@ section .location {
   padding: 4px 5px 5px;
   font-size: 0.9rem;
   line-height: 1;
-  color: #3e6d8e;
-  background-color: #e1e8ec;
-  border: 0 solid #e1e8ec;
+  color: var(--color-keyword-text);
+  background-color: var(--color-keyword-bg);
+  border: 0 solid var(--color-keyword-border);
   white-space: nowrap;
 }
 
 .keywords li:hover,
 .courses li:hover {
-  background: #dfeaf0;
+  background: var(--color-keyword-hover);
 }
 
 .highlights {
@@ -417,7 +496,7 @@ section .location {
 }
 
 .tumblr {
-  color: #32506d;
+  color: var(--color-tumblr);
 }
 
 .foursquare {
@@ -461,7 +540,7 @@ section .location {
 }
 
 .github {
-  color: #171515;
+  color: var(--color-github);
 }
 
 .stack-overflow {
@@ -521,7 +600,7 @@ section .location {
 }
 
 .level .bar {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-bar-border);
   display: block;
   width: 10em;
   height: 5px;
@@ -561,7 +640,7 @@ section .location {
 
 #references .item {
   padding-left: 0.5em;
-  border-left: 5px solid #ff6d1f;
+  border-left: 5px solid var(--color-reference-border);
 }
 
 .section > section > section {
@@ -584,6 +663,65 @@ section .location {
 }
 
 /****************
+*	THEME TOGGLE
+****************/
+
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--color-keyword-bg);
+  border: 1px solid var(--color-section-line);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+  opacity: 0.7;
+}
+
+#theme-toggle:hover {
+  opacity: 1;
+}
+
+#theme-toggle .icon-sun,
+#theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Show sun icon in dark mode (click to go light) */
+[data-theme="dark"] #theme-toggle .icon-sun {
+  display: inline;
+}
+[data-theme="dark"] #theme-toggle .icon-moon {
+  display: none;
+}
+
+/* Show moon icon in light mode (click to go dark) */
+:root:not([data-theme="dark"]) #theme-toggle .icon-moon {
+  display: inline;
+}
+:root:not([data-theme="dark"]) #theme-toggle .icon-sun {
+  display: none;
+}
+
+/* Auto dark: show sun when OS is dark and no manual override */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) #theme-toggle .icon-sun {
+    display: inline;
+  }
+  :root:not([data-theme="light"]):not([data-theme="dark"]) #theme-toggle .icon-moon {
+    display: none;
+  }
+}
+
+/****************
 *		TABLET
 ****************/
 
@@ -595,7 +733,7 @@ section .location {
   .section header .date {
     float: right;
     font-weight: 600;
-    color: #000;
+    color: var(--color-date-tablet);
   }
 }
 
@@ -641,6 +779,35 @@ section .location {
 }
 
 @media print {
+  /* Force light mode for print/PDF */
+  :root {
+    --color-bg: #fff;
+    --color-text: #40484f;
+    --color-link: #0095ff;
+    --color-link-hover: #0c65a5;
+    --color-emphasis: #757575;
+    --color-section-title: #ff6d1f;
+    --color-section-title-bg: #fff;
+    --color-meta: #606d76;
+    --color-header-label: #202931;
+    --color-summary-bg: transparent;
+    --color-section-line: #ccc;
+    --color-space-left: #aaa;
+    --color-keyword-text: #3e6d8e;
+    --color-keyword-bg: transparent;
+    --color-keyword-border: #e1e8ec;
+    --color-keyword-hover: #dfeaf0;
+    --color-bar-border: #ddd;
+    --color-date-tablet: #000;
+    --color-reference-border: #ff6d1f;
+    --color-github: #171515;
+    --color-tumblr: #32506d;
+  }
+
+  #theme-toggle {
+    display: none;
+  }
+
   #profiles a:not(.hide-href-print)::after{
     content: " (" attr(href) ") ";
   }
